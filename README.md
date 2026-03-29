@@ -21,7 +21,7 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 
 ### April 08 (40%)
 - Add JavaScript that will actually make calls to the API that holdes the skulltula data and generate the page that displays all the data on what you've collected and filters what you see based on your preferences.
-- Each skulltula element will likely contain images displaying where it is located on the world map. (Maybe it will use x/y data so I don't have to store 100 map images.) 
+- Each skulltula element will likely contain images displaying where it is located on the world map. (Maybe it will use x/y data so I don't have to store 100 map images.) The maps themsevles will likely be gotten from the [Reloaded texture pack](https://github.com/GhostlyDark/OoT-Reloaded-SoH/tree/master/OoT%20Reloaded%20(SoH)/textures/map_grand_static). )
 
 ### April 11 (50%)
 
