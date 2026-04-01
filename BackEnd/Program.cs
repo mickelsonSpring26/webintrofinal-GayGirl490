@@ -13,6 +13,25 @@ builder.Services.AddCors(o =>
 var app = builder.Build();
 app.UseCors();
 
+string rawData = File.ReadAllText("/home/tasty/Desktop/SoH-Blair-Foxtrot-Linux/Save/file1.sav");
+
 app.MapGet("/", () => "You shouldn't have done that.");
+// app.MapPost("/FileReader", (string path) =>
+//     saveFileContent = File.ReadAllText(path)
+// );
+app.MapGet("/FileReader", () =>
+{
+    string splitAtGSFlags = rawData.Split("\"gsFlags\": [\n     ")[1];
+    string justTheNumbers = splitAtGSFlags.Split("\n    ],")[0];
+    string[] gsFlagStrings = justTheNumbers.Split(",\n     ");
+    List<gsFlag> gsFlags = new();
+    foreach(var gsFlagString in gsFlagStrings)
+    {
+        gsFlags.Add(new gsFlag(int.Parse(gsFlagString)));
+    }
+    return gsFlags;
+});
 
 app.Run();
+
+public record gsFlag(int flag);

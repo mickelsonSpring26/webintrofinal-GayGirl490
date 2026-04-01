@@ -1,0 +1,9 @@
+User accounts to separate by users, which should allow more capacity for more files.
+A manual tracker for heart pieces. (I don't know how the heart pieces get tracked. I can keep track of how many you have, but not exactly which ones. Maybe I can do something. I believe I need more ability for user input. The manual tracker should be useful, even though it's not as useful as actually reading the save data Since you'll need to track them manually, but there are only 36 heart pieces. (Don't forget to account for starting hearts and boss heart containers)) Use drag and drop to keep track of heart pieces.
+
+filter bar should to use text for filtering.
+But I will still use a select input in addition to text.
+
+Is there a way to send data in a POST request and have it immediately return something back?
+
+Why does everything have to be formatted as JSON serializable objects and why can't I just return and receive simple data types like a list or array of ints. Why do I have to make it an object or list/array of objects? (Does it have to be exclusively JSON?)

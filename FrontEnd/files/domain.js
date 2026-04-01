@@ -1,1 +1,1 @@
-import { GetData, SendData } from "./service.js";
+// import { GetData, SendData } from "./service.js";

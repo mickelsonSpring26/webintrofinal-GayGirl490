@@ -1,5 +1,5 @@
-export async function GetData() {
-  const response = await fetch("http://localhost:5293");
+async function GetData(url) {
+  const response = await fetch(url);
   try {
     const result = await response.json();
     return result;
@@ -9,7 +9,7 @@ export async function GetData() {
   }
 }
 
-export const SendData = async (data) => {
+const SendData = async (data, url) => {
   await fetch("http://localhost:5293", {
     method: "POST",
     headers: {
@@ -18,3 +18,7 @@ export const SendData = async (data) => {
     body: JSON.stringify(data),
   });
 };
+
+export const GetGSFlags = async (path) => {
+  return await GetData("http://localhost:5293/FileReader");
+}
