@@ -7,3 +7,7 @@ But I will still use a select input in addition to text.
 Is there a way to send data in a POST request and have it immediately return something back?
 
 Why does everything have to be formatted as JSON serializable objects and why can't I just return and receive simple data types like a list or array of ints. Why do I have to make it an object or list/array of objects? (Does it have to be exclusively JSON?)
+Wait, now it just works? What happened?
+
+I'm not sure how to work in user auth yet, but the submit event will send the data to a POST API that gets the file path to your specific save file, as well as interpreting which save file it is and uses this to store and extract the data from that file (Maybe it will save this somewhere like a mini JSON file) Then submit will immediately do a get request right after which takes the mini JSON data and uses it to extract the data from the save file and return it.
+I think the submit should call a function in service.js that does the POST and then GET request for this, and then returns the result of the GET request.

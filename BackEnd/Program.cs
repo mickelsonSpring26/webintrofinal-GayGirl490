@@ -24,12 +24,12 @@ app.MapGet("/FileReader", () =>
     string splitAtGSFlags = rawData.Split("\"gsFlags\": [\n     ")[1];
     string justTheNumbers = splitAtGSFlags.Split("\n    ],")[0];
     string[] gsFlagStrings = justTheNumbers.Split(",\n     ");
-    List<int> gsFlagInts = new();
-    foreach(var gsFlagString in gsFlagStrings)
+    List<int> gsFlags = new();
+    foreach(string gsFlagString in gsFlagStrings)
     {
-        gsFlagInts.Add(int.Parse(gsFlagString));
+        gsFlags.Add(int.Parse(gsFlagString));
     }
-    return new { gsFlags = gsFlagInts };
+    return gsFlags;
 });
 
 app.Run();
