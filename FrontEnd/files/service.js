@@ -10,7 +10,7 @@ async function GetData(url) {
 }
 
 const SendData = async (data, url) => {
-  await fetch("http://localhost:5293", {
+  await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -20,5 +20,6 @@ const SendData = async (data, url) => {
 };
 
 export const GetGSFlags = async (path) => {
+  await SendData({path: path}, "http://localhost:5293/FileReader");
   return await GetData("http://localhost:5293/FileReader");
 }

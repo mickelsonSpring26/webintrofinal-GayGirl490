@@ -11,3 +11,22 @@ Wait, now it just works? What happened?
 
 I'm not sure how to work in user auth yet, but the submit event will send the data to a POST API that gets the file path to your specific save file, as well as interpreting which save file it is and uses this to store and extract the data from that file (Maybe it will save this somewhere like a mini JSON file) Then submit will immediately do a get request right after which takes the mini JSON data and uses it to extract the data from the save file and return it.
 I think the submit should call a function in service.js that does the POST and then GET request for this, and then returns the result of the GET request.
+
+I will definitely use local storage for user auth, and query string for the spoiler tag.
+Or maybe I can use local storage for putting together the file path to send as a GET request?
+
+Gradients can be done, but there is a much higher risk of contrast issues. More subtle gradients are better.
+
+Go and Rust compile the code as a native executable and don't require you to install a specific runtime in order to execute.
+
+To avoid excessive site reloading, open a vscodium instance in just the FrontEnd, then start liveserver in that instance. Then minimize the tab. To save on RAM, don't open any tabs or anything on that. Once minimized, you can open the top level in a different instance and be able to edit anything and still have liveserver hot reload and update the frontend, but it won't reload every time dotnet watch recompiles the web app because that changes the bin/ and obj/ folders which just ruins everything.
+I also just open BackEnd in the terminal and use dotnet watch (again, to save on RAM).
+
+Also if you are having problems with a thing not working, just ^C and up arrow to redo dotnet watch from scratch. Cuz it just doesn't work half the time. Especially when you add in new things, like a whole 'nother page, or the ability to receive a file as input from an API.
+You can do ^R "Ctrl + R" to restart? I think it might work? It might not.
+
+Wait, how do I receive files? Like how do I use an API as a file location on the computer? I think this one gets answered in the lab we did on file uploads that I finished today(2-Apr-2026).
+
+Okay, apparently C# POST APIs in the web app thing can't actually receive like strings/ints/other raw data and stuff. The data that is given to a POST request API has to be an object. Which I guess makes sense since I'm literally sending it a JSON object. Still, this was really throwing off like everything I was working toward. I feel like it makes me have to add code that feels unnecessary just to accomodate. I'll see if I can bring up this issue in class later. Like I can't have the POST request mehtod on the backend have an input of type string. It has to be some kind of object like the one added as a record at the bottom of Program.cs. Why can't the POST request receive a string? (There are probably valid reasons, it's just that this was really messing with me and I had no clue why nothing was working.
+
+What are websockets? Hope we go over that in class soon.
