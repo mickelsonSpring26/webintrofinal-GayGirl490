@@ -17,14 +17,15 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 ### April 04 (30%)
 - I'll actually need to gather the data on how the skulltulas are stored. This will take quite a bit of time.
 - Then assemble the database that will be read from and interpreted into the website pages. (this will likely be stored on the API side, which will be worked on at the same time)
-- The main page will have a select input that will filter skulltulas by area.
+- The main page will have a select input that will filter skulltulas by area (This will have the change event listener attached.)
+- I believe I'll start a login and homepage. Add homepage behaviour that says (You aren't logged in, and have a shortcut to the login page.) I wonder how to make javascript that redirects me to a different page.
 
 ### April 08 (40%)
 - Add JavaScript that will actually make calls to the API that holdes the skulltula data and generate the page that displays all the data on what you've collected and filters what you see based on your preferences.
 - Each skulltula element will likely contain images displaying where it is located on the world map. (Maybe it will use x/y data so I don't have to store 100 map images.) The maps themsevles will likely be gotten from the [Reloaded texture pack](https://github.com/GhostlyDark/OoT-Reloaded-SoH/tree/master/OoT%20Reloaded%20(SoH)/textures/map_grand_static). )
 
 ### April 11 (50%)
-- Work on the styling so that the site doesn't look so bare bones. Make it so each HTML elements are selected using ids and classes. Make certain elements have transitions and other behaviours depending on what actions are being performed on them. Colors. Layout (will likely be a scrollable list using flexbox) Add fancy borders and corner radii.
+- Work on the styling so that the site doesn't look so bare bones. Make it so each HTML elements are selected using ids and classes. Make certain elements have transitions and other behaviours depending on what actions are being performed on them. Colors. Layout (will likely be a scrollable list using flexbox) Add fancy borders and corner radii. Choose the same colour scheme as the file select menu.
 
 ### April 15 (70%)
 - Add logic for filtering by area, as well as a spoiler checkbox in the main page, which can be changed and re-render everything instantly. The query string will be used to determine whether to render the page in spoiler mode or not. Local storage will be for storing the skulltula data, so if the page reloads, it won't have to keep re-sending requests to deserialize the save file to the API.

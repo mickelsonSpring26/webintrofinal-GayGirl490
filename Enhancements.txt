@@ -29,4 +29,10 @@ Wait, how do I receive files? Like how do I use an API as a file location on the
 
 Okay, apparently C# POST APIs in the web app thing can't actually receive like strings/ints/other raw data and stuff. The data that is given to a POST request API has to be an object. Which I guess makes sense since I'm literally sending it a JSON object. Still, this was really throwing off like everything I was working toward. I feel like it makes me have to add code that feels unnecessary just to accomodate. I'll see if I can bring up this issue in class later. Like I can't have the POST request mehtod on the backend have an input of type string. It has to be some kind of object like the one added as a record at the bottom of Program.cs. Why can't the POST request receive a string? (There are probably valid reasons, it's just that this was really messing with me and I had no clue why nothing was working.
 
+
+I could likely change it so that the text input is the user name input for user auth and just add another input that just uploads the save file.
+How do I redirect to a different page using javascript?
+
 What are websockets? Hope we go over that in class soon.
+
+Maybe I could get the extra credit for uploading, storing, and using files on a custom API.

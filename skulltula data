@@ -1,0 +1,72 @@
+before Kakariko skulltula on Impa's roof (had 45, all the ones in the guide 1-44 plus one more in Dodongo's Cavern)
+"gsFlags": [
+     990991,
+     0,
+     251854848,
+     -972291325,
+     50825151,
+     0
+    ],
+after (this is number 45 in the guide, my number 46):
+"gsFlags": [
+     990991,
+     0,
+     251854848,
+     -972291325,
+     50825215,
+     0
+    ],
+
+Maps are stored in /textures/map_i_static
+and                /textures/map_grand_static
+
+You can use the flags tab in the save editor to check which skulltulas have been collected and how the values change based on that. (I wonder how the data is read though)
+
+It is an array of six ints. Does each int at least correspond to a collection of areas? (Yes?)
+
+The secret is to convert each number to 32-bit signed 2's compliment binary. (ints take up 4 bytes or 32 bits so this makes sense) Each skulltula corresponds to an index at one of these 6 numbers in binary. It starts from right to left. 
+For example
+Deku tree + Dodongo's Cavern = 7951 or 0001111100001111 (as a short (signed 16 bits (2 bytes)))
+They might actually be stored in the order that they appear in the flag editor.
+22 bytes. 
+
+The reasoning for the seemingly arbitrary zeroes in between is because the skulltulas for each area are stored as a whole byte. Which means that each of the main areas can only have a maximum of 8 gold skulltulas. The areas are divided up into the 8 main dungeons, 2 mini dungeons, and the 12 main map areas.
+Hence the 22 bytes. Because they have to be stored as ints and ints can only store 4 bytes of data, it has to be split up into 6. This at least means I have a concrete way of tracking by area, which leaves the grueling labour of having to track each one individually, but I'll get there. I've already come so far with just this.
+
+How it is structured:
+This here is int 0 from file1:
+00011111 00001111 00011111 00001111
+ byte 3   byte 2   byte 1   byte 0
+
+I'm counting top to bottom as they appear in the file. So int 0 is the first one at the top, 1 is the second one from the top, etc. 5 is the bottom because there are 6.
+
+int 0: 
+    byte 3: Forest Temple
+    byte 2: Inside Jabu-Jabu's Belly
+    byte 1: Dodongo's Cavern
+    byte 0: Deku Tree
+int 1: 
+    byte 3: Shadow Temple
+    byte 2: Spirit Temple
+    byte 1: Water Temple
+    byte 0: Fire Temple
+int 2: 
+    byte 3: Lon Lon Ranch
+    byte 2: Hyrule Field
+    byte 1: Ice Cavern
+    byte 0: Bottom of the Well
+int 3: 
+    byte 3: Death Mountain Trail, Goron City
+    byte 2: Castle Town and Ganon's Castle
+    byte 1: Lost Woods, Sacred Forest Meadow
+    byte 0: Kokiri Forest
+int 4: 
+    byte 3: Gerudo Valley
+    byte 2: Lake Hylia
+    byte 1: Zora's Fountain, River, Domain
+    byte 0: Kakariko Village, Graveyard
+int 5: 
+    byte 3: *Unused*
+    byte 2: *Unused*
+    byte 1: Desert Colossus, Haunted Wasteland
+    byte 0: Gerudo Fortress

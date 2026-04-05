@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
     />
-    <title></title>
+    <title>Skulltula Page</title>
     <link rel="stylesheet" href="./files/styles.css" />
     <script type="module" src="./files/ui.js"></script>
   </head>
@@ -14,29 +14,41 @@
   <body id="body">
     <header id="site-header"></header>
     <main id="primary-content">
-      <form id="select-file-form">
-        <label>
-          File path:
-          <input type="text" id="save-file-path" />
-        </label>
-        <br />
-        <label>
-          Which File (1, 2 or 3)?
-          <input type="number" min="1" max="3" id="file-number" />
-        </label>
-        <br />
-        <label>
-          Would you like to view skulltulas you haven't collected yet?
-          <select name="spoiler" id="spoiler">
-            <option hidden disabled selected value="">(Select one)</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
-      </form>
+      <a href="./login.html">Go to Login</a>
+      <br />
+      <select name="area" id="area">
+        <option selected value="all">All Areas</option>
+
+        <option value="dungeons">Dungeons</option>
+        <option value="miniDungeons">Mini Dungeons</option>
+        <option value="overworld">Overworld</option>
+
+        <option value="dekuTree">Deku Tree</option>
+        <option value="dodongoCavern">Dodongo's Cavern</option>
+        <option value="jabuJabuBelly">Inside Jabu-Jabu's Belly</option>
+
+        <option value="forestTemple">Forest Temple</option>
+        <option value="fireTemple">Fire Temple</option>
+        <option value="waterTemple">Water Temple</option>
+        <option value="spiritTemple">Spirit Temple</option>
+        <option value="shadowTemple">Shadow Temple</option>
+
+        <option value="well">Bottom of the Well</option>
+        <option value="iceCavern">Ice Cavern</option>
+
+        <option value="hyruleField">Hyrule Field</option>
+        <option value="lonLonRanch">Lon Lon Ranch</option>
+        <option value="kokiriForest">Kokiri Forest</option>
+        <option value="lostWoods">Lost Woods, Sacred Forest Meadow</option>
+        <option value="castle">Castle Town and Ganon's Castle</option>
+        <option value="deathMountain">Death Mountain Trail, Goron City</option>
+        <option value="kakarikoVillage">Kakariko Village, Graveyard</option>
+        <option value="zora">Zora's Fountain, River, Domain</option>
+        <option value="lakeHylia">Lake Hylia</option>
+        <option value="gerudoValley">Gerudo Valley</option>
+        <option value="gerudoFortress">Gerudo Fortress</option>
+        <option value="desert">Desert Colossus, Haunted Wasteland</option>
+      </select>
       <!-- <aside id="sidebar"></aside>
       <article id="main-stuff-container">
         <section id="collected-container"></section>
