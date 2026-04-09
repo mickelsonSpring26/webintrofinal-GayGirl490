@@ -1,8 +1,8 @@
 :root {
-  --primary-dark: #000000;
-  --primary-light: #ffffff;
-  /* background-color: var();
-  color: var(); */
+  --primary-dark: #182133;
+  --primary-light: #8bb2ff;
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
 }
 
 .flex-column-center {

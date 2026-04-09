@@ -1,11 +1,36 @@
-// import { GetData, SendData } from "./service.js";
+import { GetGSFlags } from "./service.js";
+import { GetSkulltulas } from "./skulltulas.js";
 
-const skulltulaData = [
-  { // For these, I'm just going to Ctrl+C, Ctrl+V from https://www.zeldadungeon.net/wiki/Ocarina_of_Time_Gold_Skulltulas to save time on writing descriptions.
-    number: 1,
-    area: "",
-    index: 0,
-    specificArea: "",
-    description: "",
+const attributions = [
+  {
+    attrib: "Zelda Dungeon's Guide to find all the Gold Skulltulas",
+    url: "https://www.zeldadungeon.net/wiki/Ocarina_of_Time_Gold_Skulltulas",
+  },
+  {
+    attrib: "Ocarina of Time Reloaded Texture Pack",
+    url: "https://github.com/GhostlyDark/OoT-Reloaded-SoH",
   },
 ];
+
+const pages = [
+  {
+    pageName: "Home Page",
+    url: "./index.html",
+  },
+  {
+    pageName: "Login Page",
+    url: "./login.html",
+  },
+  {
+    pageName: "Author's Page",
+    url: "./author.html",
+  },
+];
+
+export const GetAttributions = () => {
+  return attributions;
+};
+
+export const GetPages = () => {
+  return pages;
+};

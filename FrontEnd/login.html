@@ -8,40 +8,38 @@
     />
     <title>Login</title>
     <link rel="stylesheet" href="./files/styles.css" />
-    <script type="module" src="./files/ui.js"></script>
+    <script type="module" src="./files/loginui.js"></script>
   </head>
 
   <body>
     <header id="site-header"></header>
     <main id="primary-content">
-      <form id="select-file-form">
-        <label>
-          File path:
-          <input type="text" id="save-file-path" />
-        </label>
-        <br />
-        <label>
-          Which File (1, 2 or 3)?
-          <input type="number" min="1" max="3" id="file-number" />
-        </label>
-        <br />
-        <label>
-          Would you like to view skulltulas you haven't collected yet?
-          <select name="spoiler" id="spoiler">
-            <option hidden disabled selected value="">(Select one)</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
-      </form>
-      <!-- <aside id="sidebar"></aside>
+      <aside id="sidebar"></aside>
       <article id="main-stuff-container">
-        <section id="collected-container"></section>
-        <section id="not-collected-container"></section>
-      </article> -->
+        <form id="select-file-form">
+          <label>
+            File path:
+            <input type="text" id="save-file-path" />
+          </label>
+          <br />
+          <label>
+            Which File (1, 2 or 3)?
+            <input type="number" min="1" max="3" id="file-number" />
+          </label>
+          <br />
+          <label>
+            Would you like to view skulltulas you haven't collected yet?
+            <select name="spoiler" id="spoiler">
+              <option value="" hidden disabled selected>(Select one)</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </label>
+          <br />
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </form>
+      </article>
     </main>
     <footer id="site-footer"></footer>
   </body>

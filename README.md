@@ -25,7 +25,8 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 - Each skulltula element will likely contain images displaying where it is located on the world map. (Maybe it will use x/y data so I don't have to store 100 map images.) The maps themsevles will likely be gotten from the [Reloaded texture pack](https://github.com/GhostlyDark/OoT-Reloaded-SoH/tree/master/OoT%20Reloaded%20(SoH)/textures/map_grand_static). )
 
 ### April 11 (50%)
-- Work on the styling so that the site doesn't look so bare bones. Make it so each HTML elements are selected using ids and classes. Make certain elements have transitions and other behaviours depending on what actions are being performed on them. Colors. Layout (will likely be a scrollable list using flexbox) Add fancy borders and corner radii. Choose the same colour scheme as the file select menu.
+- Work on the styling so that the site doesn't look so bare bones. Make it so each HTML elements are selected using ids and classes. Make certain elements have transitions and other behaviours depending on what actions are being performed on them. Colors. Layout (will likely be a scrollable list using flexbox) Add fancy borders and corner radii. Choose the same colour scheme as the file select menu. (Backgrounds for it are in [/textures/vr_cloud(0-3)_static](https://github.com/GhostlyDark/OoT-Reloaded-SoH/tree/master/OoT%20Reloaded%20(SoH)/textures/vr_cloud0_static))
+- Put a picture of Blåhaj in the Author page, and have a fun minigame where you can drag it to different spots on the page, and that's drag and drop.
 
 ### April 15 (70%)
 - Add logic for filtering by area, as well as a spoiler checkbox in the main page, which can be changed and re-render everything instantly. The query string will be used to determine whether to render the page in spoiler mode or not. Local storage will be for storing the skulltula data, so if the page reloads, it won't have to keep re-sending requests to deserialize the save file to the API.
@@ -37,3 +38,8 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 
 ### April 22 (90%)
 - Basic troubleshooting, testing, and setup for in-class presentation. Will involve making a test file and showing how the program functions.
+
+
+## Attributions
+- [Zelda Dungeon's Guide to find all the Gold Skulltulas](https://www.zeldadungeon.net/wiki/Ocarina_of_Time_Gold_Skulltulas)
+- [Ocarina of Time Reloaded Texture Pack](https://github.com/GhostlyDark/OoT-Reloaded-SoH)

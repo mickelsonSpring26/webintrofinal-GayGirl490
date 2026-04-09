@@ -29,6 +29,7 @@ app.MapPost(
         // string saveFileContent = File.ReadAllText(filePath.path);
         // File.WriteAllText("CurrentSave.sav", saveFileContent);
         // string rawData = File.ReadAllText("CurrentSave.sav");
+        gsFlags = [];
         string rawData = File.ReadAllText(filePath.path);
         string splitAtGSFlags = rawData.Split("\"gsFlags\": [\n     ")[1];
         string justTheNumbers = splitAtGSFlags.Split("\n    ],")[0];
