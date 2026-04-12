@@ -35,7 +35,7 @@ How do I redirect to a different page using javascript?
 
 What are websockets? Hope we go over that in class soon.
 
-I think I'll transition to having manual file uploads. (I don't think all the inputs need to be in the same form) How would I get it to automatically handle if the save file gets updated? Maybe for the end. (I'd need some kind of async to check like every few seconds or something, but then I need the site itself to automatically refresh. (Could I have it constantly checking in the background? Is JavaScript allowed to access the host filesystem? I imagine not for basic security))
+I think I'll transition to having manual file uploads. (I don't think all the inputs need to be in the same form) How would I get it to automatically handle if the save file gets updated? Maybe for the end. (I'd need some kind of async to check like every few seconds or something, but then I need the site itself to automatically refresh. (Could I have it constantly checking in the background? (Is that what a service worker is? Is JavaScript allowed to access the host filesystem? I imagine not for basic security)) Also automatic reload upon save file changes likely will only work if I run the API locally, for reasons. So I would still need some text input/settings where I tell the program what my save files directory is. (This could be a security risk? Maybe unless I hardcode it. Maybe. Who knows?)
 
 How do I get the box corners to be like they are in the file select menu with CSS styling on the front end?
 

@@ -1,8 +1,7 @@
 :root {
   --primary-dark: #182133;
   --primary-light: #8bb2ff;
-  background-color: var(--primary-dark);
-  color: var(--primary-light);
+  --link-text: #8ea1c5;
 }
 
 .flex-column-center {
@@ -11,6 +10,68 @@
   align-items: center;
 }
 
-#site-header {}
+a {
+  color: var(--link-text);
+}
 
-#site-footer {}
+#body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-image: url("./gNightOvercastSkybox2Tex.png");
+  /* background-color: var(--primary-dark); */
+  color: var(--primary-light);
+  font-family: 'Trebuchet MS';
+}
+
+#site-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1 a {
+    text-decoration: none;
+  }
+  p {
+    margin: 0;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    li {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+}
+
+#primary-content {
+  display: flex;
+  flex-direction: row;
+}
+
+
+#site-footer {
+  display: flex;
+  flex-direction: column;
+  h2 {
+    align-self: center;
+  }
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    li {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+}
+
+#lesbian,
+#transgender {
+  width: 50px;
+}
