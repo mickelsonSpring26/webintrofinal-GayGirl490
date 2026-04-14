@@ -42,10 +42,16 @@ const renderHeader = () => {
 
     const pageUrlSplit = page.url.split("/");
     const currentPageHTML = FromEndOfArray(pageUrlSplit);
-    
+    // console.log(FromEndOfArray(window.location.pathname.split("/")));
+
     if (window.location.pathname.includes(currentPageHTML)) {
       pageListItemAnchor.classList.add("current-page");
-    };
+    } else if (
+      !FromEndOfArray(window.location.pathname.split("/")) &&
+      currentPageHTML === "index.html"
+    ) {
+      pageListItemAnchor.classList.add("current-page");
+    }
 
     pagesList.appendChild(pageListItem);
   });

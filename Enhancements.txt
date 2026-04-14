@@ -55,8 +55,9 @@ Desaturate Attributions (and move it to the bottom), and increase Saturation for
 Attributions can be placed as like in CSS comments or comments in the HTML head element.
 
 
-The ui.js for index.html will simply always run. I tried having it only run when window.location.pathname === "/index.html" but that broke it on github pages. So then I tried window.location.pathname.includes("/index.html") and it worked for every page except for index.html, even when I was on index.html explicitly. (oh, wait no, it does. It's just broken. 
+The ui.js for index.html will simply always run. I tried having it only run when window.location.pathname === "/index.html" but that broke it on github pages. So then I tried window.location.pathname.includes("/index.html") and it worked for every page except for index.html, even when I was on index.html explicitly. oh, wait no, it does. It's just broken. 
 
 It is still important to note that the ui.js index.html uses will always run, and I'm not sure what to do about that, other than plan and develop accordingly.
+Is there a way to do something about it not actually putting index.html in the page title? Or some way to handle when index.html isn't in the page title?
 
 Maybe I could get the extra credit for uploading, storing, and using files on a custom API. and/or mobile responsiveness.
