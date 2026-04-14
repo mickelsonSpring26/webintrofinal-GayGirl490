@@ -9,6 +9,11 @@ export const dgebi = (id) => {
   return document.getElementById(id);
 };
 
+export const FromEndOfArray = (array, i = 0) => {
+  const endOfArray = array.length - (1 + i);
+  return array[endOfArray];
+};
+
 const renderHeader = () => {
   const headerElement = dgebi("site-header");
 
@@ -34,6 +39,13 @@ const renderHeader = () => {
 
     pageListItemAnchor.textContent = page.pageName;
     pageListItemAnchor.href = page.url;
+
+    const pageUrlSplit = page.url.split("/");
+    const currentPageHTML = FromEndOfArray(pageUrlSplit);
+    
+    if (window.location.pathname.includes(currentPageHTML)) {
+      pageListItemAnchor.classList.add("current-page");
+    };
 
     pagesList.appendChild(pageListItem);
   });
@@ -73,11 +85,14 @@ export const RenderPage = () => {
   renderFooter();
 };
 
-if (window.location.pathname.includes("/index.html")) {
-  RenderPage();
+RenderPage();
+// if (window.location.pathname.includes("/index.html")) {
+// if (true) {
 
-  const areaFilterSelect = dgebi("area");
+const areaFilterSelect = dgebi("area");
+if (areaFilterSelect) {
   areaFilterSelect.addEventListener("change", (e) => {
     // e.target.value;
   });
 }
+// }

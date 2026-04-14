@@ -3,8 +3,8 @@ import { GetGSFlags } from "./service.js";
 
 // const url = new URL(window.location);
 
-if (window.location.pathname.includes("/login.html")) {
-  RenderPage();
+// if (window.location.pathname.includes("/login.html")) {
+  // RenderPage();
 
   const selectFileFormElement = dgebi("select-file-form");
   selectFileFormElement.addEventListener("submit", async (e) => {
@@ -28,4 +28,4 @@ if (window.location.pathname.includes("/login.html")) {
     );
     // e.target.reset();
   });
-}
+// }

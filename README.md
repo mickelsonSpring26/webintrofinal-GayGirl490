@@ -33,6 +33,7 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 - Add logic for filtering by area, as well as a spoiler checkbox in the main page, which can be changed and re-render everything instantly. The query string will be used to determine whether to render the page in spoiler mode or not. Local storage will be for storing the skulltula data, so if the page reloads, it won't have to keep re-sending requests to deserialize the save file to the API.
 - Put all the inputs fields in the sidebar. (Except the login on login.html)
 - The main page is in a transparent box that looks like the file select menu. (I don't know how to get the corners to look like they do in the actual menu in the game.)
+- Add a way for the pages in the nav bar to indicate which pages you are on, with classList.add when they are being generated. (index.html / home page is the else)
 
 ### April 18 (80%)
 - Figure out cloud server back-end hosting. Specifically, how to send the save file data to the back-end API.
@@ -47,3 +48,5 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 - [Zelda Dungeon's Guide to find all the Gold Skulltulas](https://www.zeldadungeon.net/wiki/Ocarina_of_Time_Gold_Skulltulas)
 - [Ocarina of Time Reloaded Texture Pack](https://github.com/GhostlyDark/OoT-Reloaded-SoH)
 - [IKEA listing for Blåhaj, supplies the image used on the author page](https://www.ikea.com/us/en/p/blahaj-soft-toy-shark-90373590/)
+- [Trans flag from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Transgender_Pride_Flag_(3-2_aspect_ratio).svg)
+- [Lesbian flag from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lesbian_Pride_Flag_2019.svg)
