@@ -73,7 +73,7 @@ export const RenderPage = () => {
   renderFooter();
 };
 
-if (window.location.pathname === "/index.html") {
+if (window.location.pathname.includes("/index.html")) {
   RenderPage();
 
   const areaFilterSelect = dgebi("area");

@@ -3,7 +3,7 @@ import { GetGSFlags } from "./service.js";
 
 // const url = new URL(window.location);
 
-if (window.location.pathname === "/login.html") {
+if (window.location.pathname.includes("/login.html")) {
   RenderPage();
 
   const selectFileFormElement = dgebi("select-file-form");

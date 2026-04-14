@@ -20,9 +20,11 @@ a {
   display: flex;
   flex-direction: column;
   background-image: url("./gNightOvercastSkybox2Tex.png");
+  background-size: 5000px;
+  background-position: center;
   /* background-color: var(--primary-dark); */
   color: var(--primary-light);
-  font-family: 'Trebuchet MS';
+  font-family: "Trebuchet MS";
 }
 
 #site-header {
@@ -51,7 +53,6 @@ a {
   display: flex;
   flex-direction: row;
 }
-
 
 #site-footer {
   display: flex;

@@ -52,5 +52,7 @@ and body is a flex container. (I mean, it is)
 
 Desaturate Attributions (and move it to the bottom), and increase Saturation for the Title (h1).
 
+Attributions can be placed as like in CSS comments or comments in the HTML head element.
+
 
 Maybe I could get the extra credit for uploading, storing, and using files on a custom API. and/or mobile responsiveness.
