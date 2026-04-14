@@ -39,4 +39,18 @@ I think I'll transition to having manual file uploads. (I don't think all the in
 
 How do I get the box corners to be like they are in the file select menu with CSS styling on the front end?
 
+Use flex box grow attributes.
+Put a blur effect on the background image.
+(w3schools)
+filter: blur(in pixels)
+
+background size auto/fit
+background position center
+
+main gets flex grow 1
+and body is a flex container. (I mean, it is)
+
+Desaturate Attributions (and move it to the bottom), and increase Saturation for the Title (h1).
+
+
 Maybe I could get the extra credit for uploading, storing, and using files on a custom API. and/or mobile responsiveness.

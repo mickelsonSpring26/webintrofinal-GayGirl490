@@ -31,6 +31,8 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 
 ### April 15 (70%)
 - Add logic for filtering by area, as well as a spoiler checkbox in the main page, which can be changed and re-render everything instantly. The query string will be used to determine whether to render the page in spoiler mode or not. Local storage will be for storing the skulltula data, so if the page reloads, it won't have to keep re-sending requests to deserialize the save file to the API.
+- Put all the inputs fields in the sidebar. (Except the login on login.html)
+- The main page is in a transparent box that looks like the file select menu. (I don't know how to get the corners to look like they do in the actual menu in the game.)
 
 ### April 18 (80%)
 - Figure out cloud server back-end hosting. Specifically, how to send the save file data to the back-end API.
