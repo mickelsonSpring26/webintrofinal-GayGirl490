@@ -28,6 +28,7 @@ You can do ^R "Ctrl + R" to restart? I think it might work? It might not.
 Wait, how do I receive files? Like how do I use an API as a file location on the computer? I think this one gets answered in the lab we did on file uploads that I finished today(2-Apr-2026).
 
 Okay, apparently C# POST APIs in the web app thing can't actually receive like strings/ints/other raw data and stuff. The data that is given to a POST request API has to be an object. Which I guess makes sense since I'm literally sending it a JSON object. Still, this was really throwing off like everything I was working toward. I feel like it makes me have to add code that feels unnecessary just to accomodate. I'll see if I can bring up this issue in class later. Like I can't have the POST request mehtod on the backend have an input of type string. It has to be some kind of object like the one added as a record at the bottom of Program.cs. Why can't the POST request receive a string? (There are probably valid reasons, it's just that this was really messing with me and I had no clue why nothing was working.
+It's because the POST request on the JS end sent the data as an "application/json" MIME type.
 
 
 I could likely change it so that the text input is the user name input for user auth and just add another input that just uploads the save file.
@@ -38,21 +39,36 @@ What are websockets? Hope we go over that in class soon.
 I think I'll transition to having manual file uploads. (I don't think all the inputs need to be in the same form) How would I get it to automatically handle if the save file gets updated? Maybe for the end. (I'd need some kind of async to check like every few seconds or something, but then I need the site itself to automatically refresh. (Could I have it constantly checking in the background? (Is that what a service worker is? Is JavaScript allowed to access the host filesystem? I imagine not for basic security)) Also automatic reload upon save file changes likely will only work if I run the API locally, for reasons. So I would still need some text input/settings where I tell the program what my save files directory is. (This could be a security risk? Maybe unless I hardcode it. Maybe. Who knows?)
 
 How do I get the box corners to be like they are in the file select menu with CSS styling on the front end?
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/corner-shape
 
 Use flex box grow attributes.
 Put a blur effect on the background image.
 (w3schools)
 filter: blur(in pixels)
+https://www.w3schools.com/cssref/func_blur.php
 
 background size auto/fit
 background position center
+https://www.w3schools.com/cssref/css3_pr_background-size.php
+
 
 main gets flex grow 1
 and body is a flex container. (I mean, it is)
 
 Desaturate Attributions (and move it to the bottom), and increase Saturation for the Title (h1).
 
-Attributions can be placed as like in CSS comments or comments in the HTML head element.
+Attributions can be placed as like in CSS comments or comments in the HTML head element (I'm going to leave it as is, because I need content to populate my footer).
+
+Give main padding-right of ~10vw;
+
+How am I going to do overflow-y scrolling?
+How do I make the background image stay static when scrolling, instead of moving and repeating itself as it goes down?
+background-attachment: fixed;
+https://www.w3schools.com/cssref/pr_background-attachment.php
+
+Click event on the spoiler checkbox which checks if the box is checked or not, then changes query string accordingly. The page handles the query string and renders accordingly.
+
+Background opacity: https://stackoverflow.com/questions/10422949/css-background-opacity
 
 
 The ui.js for index.html will simply always run. I tried having it only run when window.location.pathname === "/index.html" but that broke it on github pages. So then I tried window.location.pathname.includes("/index.html") and it worked for every page except for index.html, even when I was on index.html explicitly. oh, wait no, it does. It's just broken. 

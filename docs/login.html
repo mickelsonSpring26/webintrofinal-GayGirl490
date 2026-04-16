@@ -13,10 +13,32 @@
 
   <body id="body">
     <header id="site-header"></header>
-    <main id="primary-content">
+    <main id="primary-content-login">
       <aside id="sidebar"></aside>
       <article id="main-stuff-container">
-        <form id="select-file-form">
+        <form id="login-form" class="flex-column-center">
+          <label class="flex-column-center">
+            Please input your User Name. (No Password)
+            <input type="text" id="userName" />
+          </label>
+          <div id="login-buttons" class="flex-column-center">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+          </div>
+        </form>
+        <section id="logged-in-section" class="flex-column-center">
+          <h3 id="welcome-message"></h3>
+          <p>Your current favourite number is: <span id="current-favourite-number"></span></p>
+          <form id="favourite-number-form">
+            <label>
+              What's your favourite number?
+              <input type="number" id="favourite-number-input" />
+            </label>
+            <button type="submit">Submit</button>
+          </form>
+          <button id="logout-button">Logout</button>
+        </section>
+        <!-- <form id="select-file-form">
           <label>
             File path:
             <input type="text" id="save-file-path" />
@@ -38,7 +60,7 @@
           <br />
           <button type="submit">Submit</button>
           <button type="reset">Reset</button>
-        </form>
+        </form> -->
       </article>
     </main>
     <footer id="site-footer"></footer>

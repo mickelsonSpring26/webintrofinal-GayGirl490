@@ -1,5 +1,8 @@
 import { GetGSFlags } from "./service.js";
-import { GetSkulltulas } from "./skulltulas.js";
+import { GetSkulltulasData } from "./skulltulas.js";
+
+let currentUser = "";
+let favouriteNumber = 0;
 
 const attributions = [
   {
@@ -11,7 +14,8 @@ const attributions = [
     url: "https://github.com/GhostlyDark/OoT-Reloaded-SoH",
   },
   {
-    attrib: "IKEA listing for Blåhaj, supplies the image used on the author page",
+    attrib:
+      "IKEA listing for Blåhaj, supplies the image used on the author page",
     url: "https://www.ikea.com/us/en/p/blahaj-soft-toy-shark-90373590/",
   },
   {
@@ -46,3 +50,29 @@ export const GetAttributions = () => {
 export const GetPages = () => {
   return pages;
 };
+
+export const GetSkulltulas = () => {
+  return GetSkulltulasData();
+};
+
+export const GetCurrentUser = () => {
+  return currentUser;
+};
+
+export const SetCurrentUser = (userName) => {
+  if(currentUser && newUsername) {
+    console.log("You must logout to change user.");
+    return false;
+  }
+  currentUser = userName;
+  return true;
+};
+
+export const GetFavouriteNumber = () => {
+  return favouriteNumber;
+};
+
+export const SetFavouriteNumber = (number) => {
+  favouriteNumber = number;
+  return true;
+}

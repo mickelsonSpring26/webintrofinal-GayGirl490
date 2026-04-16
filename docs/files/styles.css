@@ -1,7 +1,9 @@
 :root {
   --primary-dark: #182133;
-  --primary-light: #8bb2ff;
+  --primary-light: #7196df;
   --link-text: #8ea1c5;
+  --title-text-color: #7ba7ff;
+  font-size: 18px;
 }
 
 .flex-column-center {
@@ -20,6 +22,7 @@ a {
   display: flex;
   flex-direction: column;
   background-image: url("./gNightOvercastSkybox2Tex.png");
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   /* background-color: var(--primary-dark); */
@@ -34,6 +37,7 @@ a {
   flex-direction: column;
   h1 a {
     text-decoration: none;
+    color: var(--title-text-color);
   }
   p {
     margin: 0;
@@ -49,10 +53,19 @@ a {
   }
 }
 
+#sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
 .current-page {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   text-decoration: none;
+}
+
+.hidden {
+  display: none;
 }
 
 #primary-content {
@@ -60,6 +73,58 @@ a {
   flex-direction: row;
   flex-grow: 1;
   min-height: 0;
+}
+
+#primary-content-login {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0;
+  #main-stuff-container {
+    #login-form {
+      margin-top: 15px;
+      label {
+        font-size: 24px;
+        font-weight: bold;
+        input {
+          margin: 10px;
+          background-color: var(--primary-dark);
+          color: var(--primary-light);
+          corner-shape: bevel;
+          border-radius: 10px;
+          height: 30px;
+          border-style: outset;
+          font-size: 16px;
+        }
+      }
+      #login-buttons {
+        margin-top: 10px;
+        button[type="reset"] {
+          margin-top: 5px;
+        }
+        button {
+          font-size: 16px;
+          color: var(--primary-light);
+          background-color: var(--primary-dark);
+          corner-shape: bevel;
+          border-radius: 5px;
+          border-bottom-color: var(--primary-light);
+        }
+      }
+    }
+    #logged-in-section {
+      h3 {
+        margin-bottom: 0;
+      }
+      p #current-favourite-number {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      #logout-button {
+        margin-top: 15px;
+      }
+    }
+  }
 }
 
 #blahaj {
@@ -71,6 +136,7 @@ a {
   flex-direction: column;
   h2 {
     align-self: center;
+    margin: 0;
   }
   ul {
     list-style-type: none;

@@ -1,4 +1,4 @@
-import { GetAttributions, GetPages } from "./domain.js";
+import { GetAttributions, GetPages, GetSkulltulas } from "./domain.js";
 import { GetGSFlags } from "./service.js";
 
 export const dce = (element) => {
@@ -81,13 +81,13 @@ const renderFooter = () => {
   footerElement.appendChild(attributionsListElement);
 };
 
-const renderSideBar = () => {
-  const sideBarElement = dgebi("sidebar");
-};
+// const renderSideBar = () => {
+//   const sideBarElement = dgebi("sidebar");
+// };
 
 export const RenderPage = () => {
   renderHeader();
-  renderSideBar();
+  // renderSideBar();
   renderFooter();
 };
 
@@ -95,8 +95,8 @@ RenderPage();
 // if (window.location.pathname.includes("/index.html")) {
 // if (true) {
 
-const areaFilterSelect = dgebi("area");
-if (areaFilterSelect) {
+if (document.title === "Skulltula Page") {
+  const areaFilterSelect = dgebi("area");
   areaFilterSelect.addEventListener("change", (e) => {
     // e.target.value;
   });

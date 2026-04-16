@@ -31,14 +31,16 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 
 ### April 15 (70%)
 - Add logic for filtering by area, as well as a spoiler checkbox in the main page, which can be changed and re-render everything instantly. The query string will be used to determine whether to render the page in spoiler mode or not. Local storage will be for storing the skulltula data, so if the page reloads, it won't have to keep re-sending requests to deserialize the save file to the API.
-- Put all the inputs fields in the sidebar. (Except the login on login.html)
+- Put all the inputs fields in the sidebar. (Except the login on login.html) Login has text, reset and submit. Home page has file upload, submit and reset in one form, filtering by area using select by itself and a spoiler checkbox by itself. I still need a number. (If you are logged in, login page will have an account info or something that says, hello {username}, what is your favourite number? and a button to logout. Guest users can't upload files. There is no sign up, only log in. For this to work, you have to already be in the know.)
 - The main page is in a transparent box that looks like the file select menu. (I don't know how to get the corners to look like they do in the actual menu in the game.)
 - Add a way for the pages in the nav bar to indicate which pages you are on, with classList.add when they are being generated. (index.html / home page is the else)
 
 ### April 18 (80%)
 - Figure out cloud server back-end hosting. Specifically, how to send the save file data to the back-end API.
 - How to handle if the save file data changes while the site is still active, and has already interpreted the saved skulltula data (probably will check the numbers in gsFlags. If any have changed, it will re-interpret which ones have and haven't been collected, otherwise it'll just do noting).
-- Adding drag and drop for keeping track of collectibles that can easily checked within seconds (so the tracking for these is done manually, in a separate HTML page. It keeps track of strength, bomb bag, quiver, scale upgrades, etc.)
+<!-- - Adding drag and drop for keeping track of collectibles that can easily checked within seconds (so the tracking for these is done manually, in a separate HTML page. It keeps track of strength, bomb bag, quiver, scale upgrades, etc.) -->
+- I added a little game on the author.html page where you drag and drop a Blåhaj on multiple spots on the pages and try to find their favourite spot, for fun.
+- Have just a few test skulltulas ready. When the list gets rendered, use :nth-child(even || odd) (as in, pick even or odd) to have a slightly different background shade for contrast.
 
 ### April 22 (90%)
 - Basic troubleshooting, testing, and setup for in-class presentation. Will involve making a test file and showing how the program functions.
