@@ -100,5 +100,28 @@ if (document.title === "Skulltula Page") {
   areaFilterSelect.addEventListener("change", (e) => {
     // e.target.value;
   });
+  const sidebarElement = dgebi("sidebar");
+  const mainElement = dgebi("primary-content");
+  if (!localStorage.getItem("name")) {
+    // sidebarElement.classList.add("hidden");
+
+    const youreNotSignedInElement = dce("h3");
+    youreNotSignedInElement.textContent = "You're Not signed in.";
+    const goToLoginPageElement = dce("a");
+    goToLoginPageElement.href = "./login.html";
+    goToLoginPageElement.textContent = "Go to login";
+    goToLoginPageElement.classList.add("not-logged-in");
+
+    sidebarElement.replaceChildren(
+      youreNotSignedInElement,
+      goToLoginPageElement,
+    );
+    mainElement.classList.add("not-logged-in");
+  } else {
+    const saveFileFormElement = dgebi("save-file-upload-form");
+    saveFileFormElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+  }
 }
 // }

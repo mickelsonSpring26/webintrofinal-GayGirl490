@@ -82,3 +82,8 @@ Some will stop prematurely because they have less than 8 skulltulas. I'm getting
 I should have the Get API return a Dictionary<string, string> where the keys are the area names (and the match what is in the skulltula database) and the values are the actual bytes that correspond. The forEach loop on the frontEnd goes through each of the skulltulas and then uses the area to access the key of the received dictionary then uses the stored index to find the corresponding bit in the value and from there determine if it has or has not been collected. (Based on if it is "0" or "1").
 This means I may have to go in reverse of the indexing scheme above. (or reverse the binary strings before returning them)
 (but right now I need to work on getting rubric stuff done, so just add a few right now and maybe get to this later)
+
+How it will probably need to be handled: 
+Ex:
+00011111 00001111 00011111 00001111
+01234567 01234567 01234567 01234567

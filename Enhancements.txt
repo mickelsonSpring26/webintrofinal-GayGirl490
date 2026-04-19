@@ -60,6 +60,7 @@ Desaturate Attributions (and move it to the bottom), and increase Saturation for
 Attributions can be placed as like in CSS comments or comments in the HTML head element (I'm going to leave it as is, because I need content to populate my footer).
 
 Give main padding-right of ~10vw;
+And padding-left of ~20px;
 
 How am I going to do overflow-y scrolling?
 How do I make the background image stay static when scrolling, instead of moving and repeating itself as it goes down?

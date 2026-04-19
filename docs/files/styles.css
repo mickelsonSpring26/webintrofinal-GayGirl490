@@ -3,6 +3,8 @@
   --primary-light: #7196df;
   --link-text: #8ea1c5;
   --title-text-color: #7ba7ff;
+  --button-shadow-color: #0d1014;
+  --selected-text-highlight: #6785c2;
   font-size: 18px;
 }
 
@@ -56,6 +58,7 @@ a {
 #sidebar {
   display: flex;
   flex-direction: column;
+  margin-right: 20px;
 }
 
 .current-page {
@@ -73,6 +76,16 @@ a {
   flex-direction: row;
   flex-grow: 1;
   min-height: 0;
+  padding-left: 20px;
+  padding-right: 15vw;
+}
+
+.not-logged-in {
+  align-self: center;
+}
+
+#area {
+  margin-top: 5px;
 }
 
 #primary-content-login {
@@ -93,8 +106,17 @@ a {
           corner-shape: bevel;
           border-radius: 10px;
           height: 30px;
-          border-style: outset;
+          border-style: solid;
+          border-top-color: var(--primary-light);
+          border-left-color: var(--primary-light);
+          border-right-color: var(--button-shadow-color);
+          border-bottom-color: var(--button-shadow-color);
           font-size: 16px;
+          border-width: 3px;
+        }
+        input:focus-visible {
+          box-shadow: 0px 0px 15px 5px var(--selected-text-highlight);
+          outline: none;
         }
       }
       #login-buttons {
@@ -107,8 +129,20 @@ a {
           color: var(--primary-light);
           background-color: var(--primary-dark);
           corner-shape: bevel;
+          border-style: solid;
           border-radius: 5px;
+          border-bottom-color: var(--button-shadow-color);
+          border-right-color: var(--button-shadow-color);
+          border-left-color: var(--primary-light);
+          border-top-color: var(--primary-light);
+        }
+        button:active {
           border-bottom-color: var(--primary-light);
+          border-right-color: var(--primary-light);
+          border-left-color: var(--button-shadow-color);
+          border-top-color: var(--button-shadow-color);
+          box-shadow: 0px 0px 15px 5px var(--selected-text-highlight);
+          outline: none;
         }
       }
     }
