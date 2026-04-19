@@ -87,3 +87,6 @@ How it will probably need to be handled:
 Ex:
 00011111 00001111 00011111 00001111
 01234567 01234567 01234567 01234567
+
+Good news, there appears to be a pattern in the flag editor. For each area, take the values as they are, checks = 1, empty = 0, then reverse it, prepend (8 - total boxes) zeroes and it matches one to one with the raw binary data. At the very least this will maybe speed up having to save manually after each one.
+Work on Kakariko Village next, for the demonstration. Just get all of Kakariko done at least. Others can be done later.
