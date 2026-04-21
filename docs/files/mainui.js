@@ -1,5 +1,5 @@
 import { GetAttributions, GetPages, GetSkulltulas } from "./domain.js";
-import { GetGSFlags } from "./service.js";
+import { GetGSFlags, GetData, baseURL } from "./service.js";
 
 export const dce = (element) => {
   return document.createElement(element);
@@ -94,7 +94,7 @@ export const RenderPage = () => {
 RenderPage();
 // if (window.location.pathname.includes("/index.html")) {
 // if (true) {
-
+console.log(baseURL, await GetData(`${baseURL}/FileReader`));
 if (document.title === "Skulltula Page") {
   const areaFilterSelect = dgebi("area");
   areaFilterSelect.addEventListener("change", (e) => {

@@ -1,4 +1,7 @@
-async function GetData(url) {
+// const baseURL = "http://localhost:5293";
+export const baseURL = "https://webintrofinal-gaygirl490.onrender.com";
+
+export async function GetData(url) {
   const response = await fetch(url);
   try {
     const result = await response.json();
@@ -20,6 +23,6 @@ const SendData = async (data, url) => {
 };
 
 export const GetGSFlags = async (path) => {
-  await SendData({path: path}, "http://localhost:5293/FileReader");
-  return await GetData("http://localhost:5293/FileReader");
+  await SendData({path: path}, `${baseURL}/FileReader`);
+  return await GetData(`${baseURL}/FileReader`);
 }
