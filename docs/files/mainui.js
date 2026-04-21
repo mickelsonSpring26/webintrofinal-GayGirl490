@@ -94,12 +94,8 @@ export const RenderPage = () => {
 RenderPage();
 // if (window.location.pathname.includes("/index.html")) {
 // if (true) {
-console.log(baseURL, await GetData(`${baseURL}/FileReader`));
+// console.log(baseURL, await GetData(`${baseURL}/FileReader`));
 if (document.title === "Skulltula Page") {
-  const areaFilterSelect = dgebi("area");
-  areaFilterSelect.addEventListener("change", (e) => {
-    // e.target.value;
-  });
   const sidebarElement = dgebi("sidebar");
   const mainElement = dgebi("primary-content");
   if (!localStorage.getItem("name")) {
@@ -121,6 +117,16 @@ if (document.title === "Skulltula Page") {
     const saveFileFormElement = dgebi("save-file-upload-form");
     saveFileFormElement.addEventListener("submit", (e) => {
       e.preventDefault();
+    });
+
+    const spoilerCheckElement = dgebi("spoiler");
+    spoilerCheckElement.addEventListener("change", (e) => {
+      //
+    });
+
+    const areaFilterSelect = dgebi("area");
+    areaFilterSelect.addEventListener("change", (e) => {
+      // e.target.value;
     });
   }
 }

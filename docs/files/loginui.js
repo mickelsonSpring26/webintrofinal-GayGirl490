@@ -18,8 +18,13 @@ loginFormElement.addEventListener("submit", (e) => {
   e.preventDefault();
 
   setUserInLocalStorage(e.target.userName.value);
-
-  window.location.href = `http://127.0.0.1:5500/index.html`;
+  
+  const URL = window.location;
+  const splitURL = URL.toString().split("/");
+  const withoutHTML = splitURL.filter((argument) => !argument.includes(".html"));
+  const withoutHtmlUrl = withoutHTML.join("/");
+  console.log(withoutHtmlUrl);
+  window.location.href = `${withoutHtmlUrl}/index.html`;
   e.target.reset();
 });
 
