@@ -1,7 +1,7 @@
-// const baseURL = "http://localhost:5293";
-export const baseURL = "https://webintrofinal-gaygirl490.onrender.com";
+const baseURL = "http://localhost:5293";
+// const baseURL = "https://webintrofinal-gaygirl490.onrender.com";
 
-export async function GetData(url) {
+async function GetData(url) {
   const response = await fetch(url);
   try {
     const result = await response.json();
@@ -12,7 +12,7 @@ export async function GetData(url) {
   }
 }
 
-const SendData = async (data, url) => {
+const SendJSONData = async (data, url) => {
   await fetch(url, {
     method: "POST",
     headers: {
@@ -22,7 +22,27 @@ const SendData = async (data, url) => {
   });
 };
 
-export const GetGSFlags = async (path) => {
-  await SendData({path: path}, `${baseURL}/FileReader`);
-  return await GetData(`${baseURL}/FileReader`);
-}
+const SendFile = async (data, url) => {
+  const formData = new FormData();
+  formData.append("saveFile", data);
+
+  const response = await fetch(url, {
+    method: "POST",
+    body: formData,
+  });
+  // console.log(response);
+};
+
+export const GetStringGSFlags = async (file) => {
+  await SendFile(file, `${baseURL}/FileStringsReader`);
+  return await GetData(`${baseURL}/FileStrings`);
+};
+
+export const GetSplitBinaryGSFlags = async (intFlags) => {
+  await SendJSONData(intFlags, `${baseURL}/FileBinarySplitter`);
+  return await GetData(`${baseURL}/SplitBinaryStrings`);
+};
+
+export const GetGSCount = async () => {
+  return await GetData(`${baseURL}/FileGSCount`);
+};

@@ -1,5 +1,5 @@
-import { GetGSFlags } from "./service.js";
 import { GetSkulltulasData } from "./skulltulas.js";
+import { GetStringGSFlags, GetSplitBinaryGSFlags, GetGSCount } from "./service.js";
 
 let currentUser = "";
 let favouriteNumber = 0;
@@ -51,8 +51,15 @@ export const GetPages = () => {
   return pages;
 };
 
-export const GetSkulltulas = () => {
-  return GetSkulltulasData();
+export const GetSkulltulas = async (file) => {
+  const stringFlags = await GetStringGSFlags(file);
+  // console.log(stringFlags);
+  const intFlags = stringFlags.map((string) => Number(string));
+  // console.log(intFlags);
+  const splitBinaryFlags = await GetSplitBinaryGSFlags(intFlags);
+  // console.log(splitBinaryFlags);
+  const gsTokensCount = await GetGSCount();
+  return { gsFlags: splitBinaryFlags, gsTokens: gsTokensCount, skulltulasData: GetSkulltulasData() };
 };
 
 export const GetCurrentUser = () => {
@@ -60,7 +67,7 @@ export const GetCurrentUser = () => {
 };
 
 export const SetCurrentUser = (userName) => {
-  if(currentUser && newUsername) {
+  if (currentUser && newUsername) {
     console.log("You must logout to change user.");
     return false;
   }
@@ -75,4 +82,4 @@ export const GetFavouriteNumber = () => {
 export const SetFavouriteNumber = (number) => {
   favouriteNumber = number;
   return true;
-}
+};

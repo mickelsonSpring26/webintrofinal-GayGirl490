@@ -44,7 +44,11 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 
 ### April 22 (90%)
 - Basic troubleshooting, testing, and setup for in-class presentation. Will involve making a test file and showing how the program functions.
+- Getting to everything I missed
+- Skulltula data that gets received from the API after it's done processing the file should be kept in local storage. I should put more things in the query string though, just to offset things? I dunno, I feel like login info works better with use in localstorage just because I'm using multiple pages.
 
+### Post Completion
+- Read the file's gsTokens.
 
 ## Attributions
 - [Zelda Dungeon's Guide to find all the Gold Skulltulas](https://www.zeldadungeon.net/wiki/Ocarina_of_Time_Gold_Skulltulas)

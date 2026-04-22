@@ -5,7 +5,6 @@ import {
   GetFavouriteNumber,
   SetFavouriteNumber,
 } from "./domain.js";
-import { GetGSFlags } from "./service.js";
 
 const setUserInLocalStorage = (userName) => {
   SetCurrentUser(userName);

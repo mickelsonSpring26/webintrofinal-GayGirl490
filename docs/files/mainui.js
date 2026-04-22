@@ -1,5 +1,4 @@
 import { GetAttributions, GetPages, GetSkulltulas } from "./domain.js";
-import { GetGSFlags, GetData, baseURL } from "./service.js";
 
 export const dce = (element) => {
   return document.createElement(element);
@@ -115,8 +114,16 @@ if (document.title === "Skulltula Page") {
     mainElement.classList.add("not-logged-in");
   } else {
     const saveFileFormElement = dgebi("save-file-upload-form");
-    saveFileFormElement.addEventListener("submit", (e) => {
+    saveFileFormElement.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      const fileUploadElement = dgebi("save-file-input");
+      const file = fileUploadElement.files[0];
+      // console.log(file);
+      const skulltulaData = await GetSkulltulas(file);
+      console.log(skulltulaData);
+      // Now run some function to render the list(s) of skulltula(s).
+      saveFileFormElement.reset();
     });
 
     const spoilerCheckElement = dgebi("spoiler");

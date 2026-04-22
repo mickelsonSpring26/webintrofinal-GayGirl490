@@ -44,7 +44,7 @@ int 0:
     byte 3: Forest Temple
     byte 2: Inside Jabu-Jabu's Belly
     byte 1: Dodongo's Cavern
-    byte 0: Deku Tree
+    byte 0: Inside the Deku Tree
 int 1: 
     byte 3: Shadow Temple
     byte 2: Spirit Temple
