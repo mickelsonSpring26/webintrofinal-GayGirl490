@@ -85,6 +85,10 @@ app.MapPost(
         "/FileStringsReader",
         (IFormFile saveFile) =>
         {
+            if (!Directory.Exists("./Save"))
+            {
+                Directory.CreateDirectory("./Save");
+            }
             using (var stream = new FileStream("./Save/CurrentSave.sav", FileMode.Create))
             {
                 saveFile.CopyTo(stream);
