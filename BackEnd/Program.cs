@@ -68,9 +68,9 @@ app.MapGet(
     "/FileGSCount",
     () =>
     {
-        if (File.Exists("Save/CurrentSave.sav"))
+        if (File.Exists("./Save/CurrentSave.sav"))
         {
-            string rawData = File.ReadAllText("Save/CurrentSave.sav");
+            string rawData = File.ReadAllText("./Save/CurrentSave.sav");
             string splitCount = rawData.Split("\"gsTokens\": ")[1];
             string justTheNumber = splitCount.Split(",")[0];
             return int.Parse(justTheNumber);
@@ -85,11 +85,11 @@ app.MapPost(
         "/FileStringsReader",
         (IFormFile saveFile) =>
         {
-            using (var stream = new FileStream("Save/CurrentSave.sav", FileMode.Create))
+            using (var stream = new FileStream("./Save/CurrentSave.sav", FileMode.Create))
             {
                 saveFile.CopyTo(stream);
             }
-            string rawData = File.ReadAllText($"Save/CurrentSave.sav");
+            string rawData = File.ReadAllText($"./Save/CurrentSave.sav");
             string splitAtGSFlags = rawData.Split("\"gsFlags\": [\n     ")[1];
             string justTheNumbers = splitAtGSFlags.Split("\n    ],")[0];
             gsFlagStrings = justTheNumbers.Split(",\n     ");
