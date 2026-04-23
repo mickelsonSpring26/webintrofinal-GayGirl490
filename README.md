@@ -47,8 +47,19 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 - Getting to everything I missed
 - Skulltula data that gets received from the API after it's done processing the file should be kept in local storage. I should put more things in the query string though, just to offset things? I dunno, I feel like login info works better with use in localstorage just because I'm using multiple pages.
 
+### April 25 (100%)
+- Store the skulltula data in localstorage
+- Now handle query string for spoiler. Have it create and add the ?spoiler=false query string upon index.html being loaded. And then have it change when clicking the checkbox. When that happens, (it reloads? the page), and does something to check what the query string is and renders the not collected box accordingly.
+- Make sure the public backend has functional file uploading before the presentation.
+
 ### Post Completion
 - Read the file's gsTokens.
+- Add support for Master Quest.
+- Add other collectibles (Heart Pieces, upgrades, equipment).
+- Add another version for Majora's Mask.
+- Find a more efficient way to split strings in C# every nth character.
+- Private everything after school ends and the final is graded (at least until I have a version that I'm ready to publish for realsies).
+- Add some sort of license similar to the license.md for WhatCampaign.
 
 ## Attributions
 - [Zelda Dungeon's Guide to find all the Gold Skulltulas](https://www.zeldadungeon.net/wiki/Ocarina_of_Time_Gold_Skulltulas)
