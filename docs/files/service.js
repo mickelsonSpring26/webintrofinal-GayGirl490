@@ -1,5 +1,5 @@
-//const baseURL = "http://localhost:5293";
- const baseURL = "https://webintrofinal-gaygirl490.onrender.com";
+const baseURL = "http://localhost:5293";
+// const baseURL = "https://webintrofinal-gaygirl490.onrender.com";
 
 async function GetData(url) {
   const response = await fetch(url);

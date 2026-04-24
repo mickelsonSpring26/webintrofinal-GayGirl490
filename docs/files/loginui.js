@@ -18,12 +18,7 @@ loginFormElement.addEventListener("submit", (e) => {
 
   setUserInLocalStorage(e.target.userName.value);
   
-  const URL = window.location;
-  const splitURL = URL.toString().split("/");
-  const withoutHTML = splitURL.filter((argument) => !argument.includes(".html"));
-  const withoutHtmlUrl = withoutHTML.join("/");
-  console.log(withoutHtmlUrl);
-  window.location.href = `${withoutHtmlUrl}/index.html`;
+  window.location.href = `${window.location}/../index.html`;
   e.target.reset();
 });
 
@@ -61,8 +56,9 @@ const RenderThisPage = () => {
     const favouriteNumberInput = dgebi("favourite-number-input");
     setNumberInLocalStorage(favouriteNumberInput.value);
 
+    currentFavouriteNumber.textContent = `${GetFavouriteNumber()}`;
+
     e.target.reset();
-    RenderThisPage();
   });
 
   const logoutButton = dgebi("logout-button");

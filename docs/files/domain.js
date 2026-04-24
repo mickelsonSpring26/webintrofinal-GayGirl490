@@ -1,8 +1,13 @@
 import { GetSkulltulasData } from "./skulltulas.js";
-import { GetStringGSFlags, GetSplitBinaryGSFlags, GetGSCount } from "./service.js";
+import {
+  GetStringGSFlags,
+  GetSplitBinaryGSFlags,
+  GetGSCount,
+} from "./service.js";
 
 let currentUser = "";
 let favouriteNumber = 0;
+let skulltulaDataObject = [];
 
 const attributions = [
   {
@@ -59,7 +64,11 @@ export const GetSkulltulas = async (file) => {
   const splitBinaryFlags = await GetSplitBinaryGSFlags(intFlags);
   // console.log(splitBinaryFlags);
   const gsTokensCount = await GetGSCount();
-  return { gsFlags: splitBinaryFlags, gsTokens: gsTokensCount, skulltulasData: GetSkulltulasData() };
+  return {
+    gsFlags: splitBinaryFlags,
+    gsTokens: gsTokensCount,
+    skulltulasData: GetSkulltulasData(),
+  };
 };
 
 export const GetCurrentUser = () => {
@@ -83,3 +92,16 @@ export const SetFavouriteNumber = (number) => {
   favouriteNumber = number;
   return true;
 };
+
+export const GetSkulltulasDataObject = () => {
+  return skulltulaDataObject;
+}
+
+export const SetSkulltulasDataObject = (skulltulaData) => {
+  skulltulaDataObject = skulltulaData;
+}
+
+export const FilterSkulltulasByArea = (filter) => {
+  // skulltulaDataObject.skulltulasData is what gets filtered.
+  return []; // a new object that contains all the same stuff but with skulltulaDataObject.skulltulasData filtered.
+}

@@ -80,6 +80,10 @@ a {
   padding-right: 15vw;
 }
 
+#main-stuff-container {
+  overflow-y: scroll;
+}
+
 .not-logged-in {
   align-self: center;
 }

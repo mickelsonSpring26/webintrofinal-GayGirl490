@@ -51,6 +51,11 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 - Store the skulltula data in localstorage
 - Now handle query string for spoiler. Have it create and add the ?spoiler=false query string upon index.html being loaded. And then have it change when clicking the checkbox. When that happens, (it reloads? the page), and does something to check what the query string is and renders the not collected box accordingly.
 - Make sure the public backend has functional file uploading before the presentation.
+- To Do
+  - HTML: figure
+  - CSS: transitions, hover, nth child, professional guidelines
+  - Javascript: filter array functions, read querystring.
+  - Functional Requirements: Filter bar(that works), Drag & Drop
 
 ### Post Completion
 - Read the file's gsTokens.
