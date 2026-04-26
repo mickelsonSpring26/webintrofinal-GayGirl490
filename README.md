@@ -52,13 +52,18 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 - Now handle query string for spoiler. Have it create and add the ?spoiler=false query string upon index.html being loaded. And then have it change when clicking the checkbox. When that happens, (it reloads? the page), and does something to check what the query string is and renders the not collected box accordingly.
 - Make sure the public backend has functional file uploading before the presentation.
 - To Do
-  - HTML: figure
-  - CSS: transitions, hover, nth child, professional guidelines
-  - Javascript: filter array functions, read querystring.
-  - Functional Requirements: Filter bar(that works), Drag & Drop
+  - [x] HTML: figure 
+  - [x] CSS: transitions, hover, nth child, professional guidelines (Do this for whenever the shadow appears over an input field. I'll need to use hover for the file input anyway)
+  - [x] Javascript: filter array functions, read querystring.
+  - Functional Requirements: [x]Filter bar(that works), [ ]Drag & Drop
+  - Uncomment padding-right: 10vw in #primary-content in styles.css once the demo is ready.
 
 ### Post Completion
 - Read the file's gsTokens.
+- Better separation of ui and domain concerning localStorage.
+- Consider whether to keep filter progress across page reload.
+- Have the spoiler elements not be created at all if ?spoiler=false so that screenreaders can't spoil you regardless.
+- Have collected and not collected have their own separate scroll bars and the titles above them are fixed in place. (So they go in containers inside the main containers.)
 - Add support for Master Quest.
 - Add other collectibles (Heart Pieces, upgrades, equipment).
 - Add another version for Majora's Mask.

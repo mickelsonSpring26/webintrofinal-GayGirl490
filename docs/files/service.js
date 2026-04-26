@@ -40,7 +40,9 @@ export const GetStringGSFlags = async (file) => {
 
 export const GetSplitBinaryGSFlags = async (intFlags) => {
   await SendJSONData(intFlags, `${baseURL}/FileBinarySplitter`);
-  return await GetData(`${baseURL}/SplitBinaryStrings`);
+  const flagsData = await GetData(`${baseURL}/SplitBinaryStrings`);
+  // console.log(flagsData); 
+  return flagsData;
 };
 
 export const GetGSCount = async () => {

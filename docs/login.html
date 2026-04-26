@@ -13,14 +13,15 @@
 
   <body id="body">
     <header id="site-header"></header>
-    <main id="primary-content-login">
+    <main id="primary-content" class="login">
       <aside id="sidebar"></aside>
-      <article id="main-stuff-container">
+      <article id="main-stuff-container" class="login">
         <form id="login-form" class="flex-column-center">
           <label class="flex-column-center">
             Please input your User Name. (No Password)
             <input type="text" id="userName" />
           </label>
+          <div id="login-error"></div>
           <div id="login-buttons" class="flex-column-center">
             <button type="submit">Submit</button>
             <button type="reset">Reset</button>

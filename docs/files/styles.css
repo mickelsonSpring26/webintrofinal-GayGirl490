@@ -5,6 +5,9 @@
   --title-text-color: #7ba7ff;
   --button-shadow-color: #0d1014;
   --selected-text-highlight: #6785c2;
+  --error-color: #fd8787;
+  --primary-dark-see-through: #1821339a;
+  --primary-darker-see-through: #090b11c2;
   font-size: 18px;
 }
 
@@ -77,22 +80,146 @@ a {
   flex-grow: 1;
   min-height: 0;
   padding-left: 20px;
-  padding-right: 15vw;
+  padding-right: 10vw;
+  /* ^ uncomment this once the demo is ready and I won't need the log. */
 }
 
 #main-stuff-container {
-  overflow-y: scroll;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  #collected-container,
+  #not-collected-container {
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+  }
+  #not-collected-container.hidden {
+    display: none;
+  }
+  /* margin-right: 10vw; */
 }
 
-.not-logged-in {
-  align-self: center;
+#main-stuff-container.login {
+  flex-direction: column;
 }
+
+#primary-content.author {
+ /**/
+  #main-stuff-container.author {
+    flex-direction: column;
+    #blahaj {
+    height: 200px;
+    width: 200px;
+  }
+  }
+}
+
+/* .not-logged-in {
+  align-self: center;
+} */
 
 #area {
   margin-top: 5px;
 }
 
-#primary-content-login {
+#logged-in-section {
+}
+
+#login-error {
+  color: var(--error-color);
+}
+
+input,
+button,
+select {
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  font-size: 16px;
+  corner-shape: bevel;
+  border-style: solid;
+  border-top-color: var(--primary-light);
+  border-left-color: var(--primary-light);
+  border-right-color: var(--button-shadow-color);
+  border-bottom-color: var(--button-shadow-color);
+  transition: 0.1s;
+}
+
+button {
+  border-radius: 5px;
+}
+
+button:active {
+  border-bottom-color: var(--primary-light);
+  border-right-color: var(--primary-light);
+  border-left-color: var(--button-shadow-color);
+  border-top-color: var(--button-shadow-color);
+  box-shadow: 0px 0px 15px 5px var(--selected-text-highlight);
+  outline: none;
+}
+
+input {
+  border-radius: 10px;
+  height: 30px;
+  border-width: 3px;
+}
+
+input:focus-visible,
+input:active,
+input[type="file"]:hover {
+  box-shadow: 0px 0px 15px 5px var(--selected-text-highlight);
+  outline: none;
+}
+
+input[type="checkbox"] {
+  /* padding: 0; I would like to remove that weird border thing when it gets highlighted.*/
+}
+
+select {
+}
+
+select:focus-visible {
+  box-shadow: 0px 0px 15px 5px var(--selected-text-highlight);
+  outline: none;
+}
+
+.skulltula-count span:nth-child(1) {
+  font-weight: bold;
+  /* font-size: 120px; */
+}
+
+.collected-skulltula-card,
+.not-collected-skulltula-card {
+  border-style: solid;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 15px;
+  corner-shape: bevel;
+  background-color: var(--primary-dark-see-through);
+  border-top-color: var(--primary-light);
+  border-bottom-color: var(--primary-dark);
+  border-left-color: var(--primary-light);
+  border-right-color: var(--primary-dark);
+  transition: 0.1s;
+  img {
+    width: 300px;
+  }
+}
+
+.collected-skulltula-card:hover,
+.not-collected-skulltula-card:hover {
+  box-shadow: 0px 0px 15px 5px var(--selected-text-highlight);
+}
+
+.collected-skulltula-card:nth-child(even) { /*I'd like every other one to have this, starting at the second one.*/
+  background-color: var(--primary-darker-see-through);
+}
+
+.not-collected-skulltula-card:nth-child(even) { /*I'd like every other one to have this, starting at the first one.*/
+  background-color: var(--primary-darker-see-through);
+}
+
+#primary-content.login {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -103,50 +230,11 @@ a {
       label {
         font-size: 24px;
         font-weight: bold;
-        input {
-          margin: 10px;
-          background-color: var(--primary-dark);
-          color: var(--primary-light);
-          corner-shape: bevel;
-          border-radius: 10px;
-          height: 30px;
-          border-style: solid;
-          border-top-color: var(--primary-light);
-          border-left-color: var(--primary-light);
-          border-right-color: var(--button-shadow-color);
-          border-bottom-color: var(--button-shadow-color);
-          font-size: 16px;
-          border-width: 3px;
-        }
-        input:focus-visible {
-          box-shadow: 0px 0px 15px 5px var(--selected-text-highlight);
-          outline: none;
-        }
       }
       #login-buttons {
         margin-top: 10px;
         button[type="reset"] {
           margin-top: 5px;
-        }
-        button {
-          font-size: 16px;
-          color: var(--primary-light);
-          background-color: var(--primary-dark);
-          corner-shape: bevel;
-          border-style: solid;
-          border-radius: 5px;
-          border-bottom-color: var(--button-shadow-color);
-          border-right-color: var(--button-shadow-color);
-          border-left-color: var(--primary-light);
-          border-top-color: var(--primary-light);
-        }
-        button:active {
-          border-bottom-color: var(--primary-light);
-          border-right-color: var(--primary-light);
-          border-left-color: var(--button-shadow-color);
-          border-top-color: var(--button-shadow-color);
-          box-shadow: 0px 0px 15px 5px var(--selected-text-highlight);
-          outline: none;
         }
       }
     }
@@ -163,10 +251,6 @@ a {
       }
     }
   }
-}
-
-#blahaj {
-  height: 200px;
 }
 
 #site-footer {

@@ -1,4 +1,4 @@
-import { dce, dgebi } from "./mainui.js";
+import { dce, dgebi, SetSkulltulaDataInLocalStorage } from "./mainui.js";
 import {
   SetCurrentUser,
   GetCurrentUser,
@@ -12,12 +12,19 @@ const setUserInLocalStorage = (userName) => {
   localStorage.setItem("name", user);
 };
 
+const loginErrorMessage = dgebi("login-error");
+
 const loginFormElement = dgebi("login-form");
 loginFormElement.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  if (!e.target.userName.value) {
+    loginErrorMessage.textContent = "Please input a user name.";
+    return;
+  }
+
   setUserInLocalStorage(e.target.userName.value);
-  
+
   window.location.href = `${window.location}/../index.html`;
   e.target.reset();
 });
@@ -65,6 +72,7 @@ const RenderThisPage = () => {
   logoutButton.addEventListener("click", (e) => {
     setUserInLocalStorage("");
     setNumberInLocalStorage(0);
+    SetSkulltulaDataInLocalStorage({});
     RenderThisPage();
   });
 };

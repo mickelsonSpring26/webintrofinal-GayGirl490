@@ -102,6 +102,20 @@ export const SetSkulltulasDataObject = (skulltulaData) => {
 }
 
 export const FilterSkulltulasByArea = (filter) => {
+  const flags = skulltulaDataObject.gsFlags;
+  const count = skulltulaDataObject.gsTokens;
+  let data;
   // skulltulaDataObject.skulltulasData is what gets filtered.
-  return []; // a new object that contains all the same stuff but with skulltulaDataObject.skulltulasData filtered.
+  if (filter === "all")
+  {
+    data = skulltulaDataObject.skulltulasData;
+  }
+  else if (filter === "dungeons" || filter === "miniDungeons" || filter === "overworld")
+  {
+    data = skulltulaDataObject.skulltulasData.filter((card) => card.areaType === filter);
+  }
+  else {
+    data = skulltulaDataObject.skulltulasData.filter((card) => card.area === filter);
+  }
+  return {gsFlags: flags, gsTokens: count, skulltulasData: data}; // a new object that contains all the same stuff but with skulltulaDataObject.skulltulasData filtered.
 }

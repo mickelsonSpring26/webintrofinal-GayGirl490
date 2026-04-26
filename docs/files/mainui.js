@@ -20,9 +20,19 @@ export const FromEndOfArray = (array, i = 0) => {
   return array[endOfArray];
 };
 
-const setSkulltulaDataInLocalStorage = (skulltulaDataObject) => {
+export const SetSkulltulaDataInLocalStorage = (skulltulaDataObject) => {
   SetSkulltulasDataObject(skulltulaDataObject);
-  // localStorage.setItem("skulltulaInformation", skulltulaDataObject);
+  localStorage.setItem(
+    "skulltulaInformation",
+    JSON.stringify(skulltulaDataObject),
+  );
+};
+
+export const GetSkulltulaDataFromLocalStorage = () => {
+  const JsonSkulltulaObject = localStorage.getItem("skulltulaInformation");
+  const parsedSkulltula = JSON.parse(JsonSkulltulaObject);
+  SetSkulltulasDataObject(parsedSkulltula);
+  return parsedSkulltula;
 };
 
 const renderHeader = () => {
@@ -108,13 +118,23 @@ const collectedContainerElement = dgebi("collected-container");
 const notCollectedContainerElement = dgebi("not-collected-container");
 
 const renderSkulltulas = (skulltulas) => {
+  if (!skulltulas) {
+    return;
+    // } else if (skulltulas.length < 1)
+    //   {
+    //     return;
+  } else if (Object.keys(skulltulas).length < 1) {
+    return;
+  }
   const tokensCount = skulltulas.gsTokens;
   const flags = skulltulas.gsFlags;
   const data = skulltulas.skulltulasData;
 
   const spoiler = url.searchParams.get("spoiler");
-  if (!spoiler) {
+  if (spoiler === "false") {
     notCollectedContainerElement.classList.add("hidden");
+  } else if (spoiler === "true") {
+    notCollectedContainerElement.classList.remove("hidden");
   }
 
   collectedContainerElement.replaceChildren();
@@ -125,30 +145,32 @@ const renderSkulltulas = (skulltulas) => {
   collectedContainerElement.appendChild(collectedHeader);
 
   const tokenCountHolder = dce("div");
+  tokenCountHolder.classList.add("skulltula-count")
   const tokenCountNumber = dce("span");
   tokenCountNumber.textContent = `${tokensCount}`; // use nth child to bold this.
   const tokenCountText = dce("span");
   tokenCountText.textContent = " skulltulas collected.";
   tokenCountHolder.replaceChildren(tokenCountNumber, tokenCountText);
+  collectedContainerElement.appendChild(tokenCountHolder);
 
   const notCollectedHeader = dce("h3");
   notCollectedHeader.textContent = "Not Yet Collected Skulltulas";
   notCollectedContainerElement.appendChild(notCollectedHeader);
 
   data.forEach((skulltulaCard) => {
-    const figureCard = dce("figure");
+    const skulltulaCardDiv = dce("div");
 
-    const skulltulaImage = dce("img");
-    skulltulaImage.src = skulltulaCard.imageURL;
+    const numberElement = dce("p");
+    numberElement.textContent = skulltulaCard.number;
+    skulltulaCardDiv.appendChild(numberElement);
 
-    const skulltulaArea = skulltulaCard.specificArea;
+    const skulltulaAreaTimeElement = dce("p");
+
     let skulltulaEra = "";
     if (skulltulaCard.era === 1) {
-      skulltulaEra = `
-(Past)`;
+      skulltulaEra = ` (Past)`;
     } else if (skulltulaCard.era === 2) {
-      skulltulaEra = `
-(Future)`;
+      skulltulaEra = ` (Future)`;
     }
     let skulltulaTimeOfDay = "";
     if (skulltulaCard.timeOfDay === 1) {
@@ -157,34 +179,46 @@ const renderSkulltulas = (skulltulas) => {
       skulltulaTimeOfDay = " (Day)";
     }
 
+    skulltulaAreaTimeElement.textContent = `${skulltulaCard.specificArea}${skulltulaEra}${skulltulaTimeOfDay}`;
+    skulltulaCardDiv.appendChild(skulltulaAreaTimeElement);
+
+    const skulltulaItemsElement = dce("p");
     let skulltulaItems = "";
-    if (skulltulaCard.requiredItems) {
-      skulltulaItems = `
-${skulltulaCard.requiredItems.join(", ")} required.`;
+    const items = skulltulaCard.requiredItems;
+    if (items.length > 0) {
+      skulltulaItems = `${items.join(", ")} ${items.length === 1 ? `is` : `are`} required`; // next project, join the last two array items with ", and " instead of just ", "
     }
+    skulltulaItemsElement.textContent = skulltulaItems;
+    skulltulaCardDiv.appendChild(skulltulaItemsElement);
 
-    const skulltulaDescription = `
-${skulltulaCard.description}`;
+    const figureCard = dce("figure");
 
-    const skulltulaCaption = dce("figcaption"); // this is kind of an abomination. I need to fix it later. I just wanted to fulfill the mandatory figure rubric item.
-    // Make the card a div. Put the figure as a child of that div, then have the figure contain the image and the description as the figcaption.
-    // It will go <div class="card-thing"> number, specific area, era and time (only have these appear if there's a specific one. i.e. the skulltula only appears in a specific era and/or time of day. If it shows up in both for one, don't show that one.), requiredItems if any, <figure> img, <figcaption>description</figcaption></figure> </div>
-    // I might get dinged on lighthouse for not giving the image any alt text.
-    skulltulaCaption.textContent = `${skulltulaArea}
-${skulltulaEra}${skulltulaTimeOfDay}${skulltulaItems}${skulltulaDescription}`;
+    const skulltulaImage = dce("img");
+    skulltulaImage.src = skulltulaCard.imageURL;
+
+    const skulltulaDescription = skulltulaCard.description;
+
+    const skulltulaCaption = dce("figcaption");
+    skulltulaCaption.textContent = `${skulltulaDescription}`;
 
     figureCard.replaceChildren(skulltulaImage, skulltulaCaption);
 
-    let collected = true;
+    skulltulaCardDiv.appendChild(figureCard);
 
-    //
+    let collected = false;
+    const areaValue = skulltulaCard.area;
+
+    // console.log(flags[areaValue][skulltulaCard.index]);
+    if (flags[areaValue][skulltulaCard.index] === "1") {
+      collected = true;
+    }
 
     if (collected) {
-      figureCard.classList.add("collected-skulltula-card");
-      collectedContainerElement.appendChild(figureCard);
+      skulltulaCardDiv.classList.add("collected-skulltula-card");
+      collectedContainerElement.appendChild(skulltulaCardDiv);
     } else {
-      figureCard.classList.add("not-collected-skulltula-card");
-      notCollectedContainerElement.appendChild(figureCard);
+      skulltulaCardDiv.classList.add("not-collected-skulltula-card");
+      notCollectedContainerElement.appendChild(skulltulaCardDiv);
     }
   });
 };
@@ -195,8 +229,12 @@ RenderPage();
 // if (true) {
 // console.log(baseURL, await GetData(`${baseURL}/FileReader`));
 if (document.title === "Skulltula Page") {
-  url.searchParams.set("spoiler", false);
-  history.pushState(null, "", url); // I need this in order to actually have the page set this in the query string when I load the page.
+  const spoilerExists = url.searchParams.get("spoiler");
+  if (!(spoilerExists === "true" || spoilerExists === "false")) {
+    url.searchParams.set("spoiler", false);
+    history.pushState(null, "", url); // I need this in order to actually have the page set this in the query string when I load the page.
+  }
+  renderSkulltulas(GetSkulltulaDataFromLocalStorage());
 
   const sidebarElement = dgebi("sidebar");
   const mainElement = dgebi("primary-content");
@@ -225,21 +263,41 @@ if (document.title === "Skulltula Page") {
       // console.log(file);
       const skulltulaData = await GetSkulltulas(file);
       // console.log(skulltulaData);
-      setSkulltulaDataInLocalStorage(skulltulaData);
-      console.log(getSkulltulaDataFromLocalStorage());
+      SetSkulltulaDataInLocalStorage(skulltulaData);
+      // console.log(GetSkulltulasDataObject());
       // Now run some function to render the list(s) of skulltula(s).
       renderSkulltulas(skulltulaData);
+      filteredAreas = skulltulaData;
       saveFileFormElement.reset();
     });
-
+    
     const spoilerCheckElement = dgebi("spoiler");
+    if (url.searchParams.get("spoiler") === "true") {
+      spoilerCheckElement.checked = true;
+    } else {
+      spoilerCheckElement.checked = false;
+    }
     spoilerCheckElement.addEventListener("change", (e) => {
-      //
+      if (spoilerCheckElement.checked) {
+        url.searchParams.set("spoiler", true);
+        history.pushState(null, "", url);
+        renderSkulltulas(filteredAreas);
+      } else {
+        url.searchParams.set("spoiler", false);
+        history.pushState(null, "", url);
+        renderSkulltulas(filteredAreas);
+      }
     });
+
+    let filteredAreas = GetSkulltulaDataFromLocalStorage();
 
     const areaFilterSelect = dgebi("area");
     areaFilterSelect.addEventListener("change", (e) => {
-      // e.target.value;
+      const filterValue = e.target.value;
+      filteredAreas = FilterSkulltulasByArea(filterValue);
+      // console.log(filteredAreas);
+      renderSkulltulas(filteredAreas);
+      // console.log(filterValue);
     });
   }
 }
