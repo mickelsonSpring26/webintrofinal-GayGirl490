@@ -63,13 +63,14 @@ Next, I would personally prefer to have this in a separate window like a tab in 
 - Better separation of ui and domain concerning localStorage.
 - Consider whether to keep filter progress across page reload.
 - Have the spoiler elements not be created at all if ?spoiler=false so that screenreaders can't spoil you regardless.
-- Have collected and not collected have their own separate scroll bars and the titles above them are fixed in place. (So they go in containers inside the main containers.)
+- Have collected and not collected have their own separate scroll bars and the titles above them are fixed in place. (So they go in containers inside the main containers. The card elements are contained as <li></li>s within <ul></ul>s)
 - Add support for Master Quest.
 - Add other collectibles (Heart Pieces, upgrades, equipment).
 - Add another version for Majora's Mask.
 - Find a more efficient way to split strings in C# every nth character.
 - Private everything after school ends and the final is graded (at least until I have a version that I'm ready to publish for realsies).
 - Add some sort of license similar to the license.md for WhatCampaign.
+- Play that one file select sound effect whenever the box shadow is activated.
 
 ## Attributions
 - [Zelda Dungeon's Guide to find all the Gold Skulltulas](https://www.zeldadungeon.net/wiki/Ocarina_of_Time_Gold_Skulltulas)

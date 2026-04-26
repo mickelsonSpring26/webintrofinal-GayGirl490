@@ -30,7 +30,7 @@ a {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  /* background-color: var(--primary-dark); */
+  background-color: var(--primary-dark);
   color: var(--primary-light);
   font-family: "Trebuchet MS";
 }
